@@ -63,7 +63,7 @@ class App extends CI_Controller {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Gagal merubah user</div>');
 		}
 
-		redirect('App/user');
+		redirect('Main/App/user');
 	}
 
 	public function hapus_user($id) {
