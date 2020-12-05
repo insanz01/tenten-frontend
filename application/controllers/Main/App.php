@@ -46,6 +46,26 @@ class App extends CI_Controller {
 		redirect('Main/App/user');
 	}
 
+	// menggunakan metode post
+	public function ubah_user() {
+		$id = $this->input->post('id');
+
+		$data = [
+			'nama' => $this->input->post('nama'),
+			'username' => $this->input->post('username'),
+			// 'password' => $this->input->post('password'),
+			'role' => $this->input->post('role')
+		];
+
+		if($this->user_m->ubah_user($data, $id)) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Berhasil merubah user</div>');
+		} else {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Gagal merubah user</div>');
+		}
+
+		redirect('App/user');
+	}
+
 	public function hapus_user($id) {
 		if($this->user_m->hapus_user($id)) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Berhasil menghapus user</div>');

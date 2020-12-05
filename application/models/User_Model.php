@@ -35,6 +35,14 @@ class User_Model extends CI_Model {
 		return $this->db->get('user')->result_array();
 	}
 
+	public function ubah_user($data, $id) {
+		$this->db->set($data);
+		$this->db->where('id', $id);
+		$this->db->update('user');
+
+		return $this->db->affected_rows();
+	}
+
 	public function hapus_user($id) {
 		// get user data
 		$user = $this->db->get_where('user', ['id' => $id])->row_array();
