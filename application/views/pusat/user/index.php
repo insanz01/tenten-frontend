@@ -123,7 +123,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ga jadi</button>
-	        <button type="submit" class="btn btn-primary">Tambah</button>
+	        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
 	      </div>
       </form>
     </div>
