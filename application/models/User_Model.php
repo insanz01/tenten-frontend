@@ -36,6 +36,20 @@ class User_Model extends CI_Model {
 	}
 
 	public function hapus_user($id) {
+		// get user data
+		$user = $this->db->get_where('user', ['id' => $id])->row_array();
+		// cek apakah user nya role sekolah
+		if($user['role'] == 'sekolah') {
+			// hapus data sekolah dengan user id tersebut
+			$berhasil = $this->db->delete('sekolah', ['id_user' => $id]);
+
+			// hapus user datanya		
+			if($berhasil) {
+				return $this->db->delete('user', ['id' => $id]);
+			}
+		}
+
+		// hapus user datanya
 		return $this->db->delete('user', ['id' => $id]);
 	}
 
