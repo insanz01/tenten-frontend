@@ -187,7 +187,9 @@ class App extends CI_Controller {
 	}
 
 	public function siswa() {
-		$data['siswa'] = $this->admin->tampilkan_siswa();
+		$sekolah_id = $this->session->userdata('sekolah_id');
+
+		$data['siswa'] = $this->admin->tampilkan_siswa($sekolah_id);
 
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar');
@@ -198,6 +200,8 @@ class App extends CI_Controller {
 
 	public function tambah_siswa() {
 		$data = $this->input->post();
+
+		$data['sekolah_id'] = $this->session->userdata('sekolah_id');
 
 		if($this->admin->tambahkan_siswa($data)) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data berhasil disubmit</div>');

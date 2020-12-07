@@ -68,12 +68,12 @@ class Admin_Model extends CI_Model {
 	// URUSAN SISWA
 	// ====================================================
 
-	public function tampilkan_siswa($id = NULL) {
+	public function tampilkan_siswa($sekolah_id, $id = NULL) {
 		if($id) {
-			return $this->db->get_where('siswa', ['id' => $id])->row_array();
+			return $this->db->get_where('siswa', ['sekolah_id' => $sekolah_id, 'id' => $id])->row_array();
 		}
 
-		return $this->db->get('siswa')->result_array();
+		return $this->db->get_where('siswa', ['sekolah_id' => $sekolah_id])->result_array();
 	}
 
 	public function tambahkan_siswa($data) {
