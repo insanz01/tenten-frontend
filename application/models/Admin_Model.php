@@ -29,12 +29,12 @@ class Admin_Model extends CI_Model {
 	// URUSAN GURU
 	// ====================================================
 
-	public function tampilkan_guru($id = NULL) {
+	public function tampilkan_guru($id_sekolah, $id = NULL) {
 		if($id) {
-			return $this->db->get_where('guru', ['id' => $id])->row_array();
+			return $this->db->get_where('guru', ['sekolah_id' => $id_sekolah, 'id' => $id])->row_array();
 		}
 
-		return $this->db->get('guru')->result_array();
+		return $this->db->get('guru', ['sekolah_id' => $id_sekolah])->result_array();
 	}
 
 	public function tambahkan_guru($data) {

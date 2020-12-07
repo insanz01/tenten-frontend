@@ -1,4 +1,11 @@
 <div class="container">
+	<?php if($this->session->flashdata('pesan')): ?>
+		<div class="row my-2">
+			<div class="col-12 text-center">
+				<?= $this->session->flashdata('pesan'); ?>
+			</div>
+		</div>
+	<?php endif; ?>
 	<div class="row">
 		<div class="col-12 mb-2">
       <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">Tambah User</button>

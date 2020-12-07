@@ -118,7 +118,9 @@ class App extends CI_Controller {
 	}
 
 	public function guru() {
-		$data['guru'] = $this->admin->tampilkan_guru();
+		$id_sekolah = $this->session->userdata('sekolah_id');
+
+		$data['guru'] = $this->admin->tampilkan_guru($id_sekolah);
 
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar');
@@ -129,7 +131,7 @@ class App extends CI_Controller {
 
 	public function tambah_guru() {
 		$data = $this->input->post();
-		$data['sekolah_id'] = 1;
+		$data['sekolah_id'] = $this->session->userdata('sekolah_id');
 
 		if($this->admin->tambahkan_guru($data)) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan</div>');
