@@ -33,10 +33,10 @@
 						<div class="form-group">
 							<label>Sertifikasi</label>
 							<select class="form-control" name="sertifikasi">
-								<option></option>
-								<option value="0" <?= ($kompetensi['sertifikasi'] == 1) ? 'selected' : '' ?>>Belum</option>
-								<option value="1" <?= ($kompetensi['sertifikasi'] == 2) ? 'selected' : '' ?>>Ya</option>
-								<option value="2" <?= ($kompetensi['sertifikasi'] == 3) ? 'selected' : '' ?>>Iya ngga ya...</option>
+								<!-- <option></option> -->
+								<option value="0" <?= ($kompetensi['sertifikasi'] == 0) ? 'selected' : '' ?>>Belum</option>
+								<option value="1" <?= ($kompetensi['sertifikasi'] == 1) ? 'selected' : '' ?>>Ya</option>
+								<option value="2" <?= ($kompetensi['sertifikasi'] == 2) ? 'selected' : '' ?>>Iya ngga ya...</option>
 							</select>
 						</div>
 						<div class="form-group">
