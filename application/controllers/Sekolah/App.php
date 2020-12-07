@@ -179,9 +179,11 @@ class App extends CI_Controller {
 	}
 
 	public function api_tampilkan_guru($id) {
-		$data = $this->admin->tampilkan_guru($id);
+		$id_sekolah = $this->session->userdata('sekolah_id');
 
-		echo json_encode($data);
+		$data = $this->admin->tampilkan_guru($id_sekolah, $id);
+
+		echo json_encode($data, JSON_PRETTY_PRINT);
 	}
 
 	public function siswa() {

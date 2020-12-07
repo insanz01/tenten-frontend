@@ -34,7 +34,7 @@ class Admin_Model extends CI_Model {
 			return $this->db->get_where('guru', ['sekolah_id' => $id_sekolah, 'id' => $id])->row_array();
 		}
 
-		return $this->db->get('guru', ['sekolah_id' => $id_sekolah])->result_array();
+		return $this->db->get_where('guru', ['sekolah_id' => $id_sekolah])->result_array();
 	}
 
 	public function tambahkan_guru($data) {

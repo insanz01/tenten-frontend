@@ -49,7 +49,7 @@
             <?php endforeach; ?>
             <?php else: ?>
             <tr class="text-center">
-              <td colspan="8">Tidak Ada Data</td>
+              <td colspan="9">Tidak Ada Data</td>
             </tr>
             <?php endif; ?>
           </tbody>
